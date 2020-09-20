@@ -1,2 +1,7 @@
 token.txt
 discord.log
+include
+lib
+scripts
+pyvenv.cfg
+.env
