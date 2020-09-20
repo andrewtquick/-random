@@ -23,5 +23,5 @@ if __name__ == '__main__':
     for ext in extensions:
         bot.load_extension(ext)
 
-    TOKEN = open('token.txt', 'r').read()
+    TOKEN = os.getenv('TOKEN')
     bot.run(os.environ.get('TOKEN'))
