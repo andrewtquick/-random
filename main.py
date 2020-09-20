@@ -3,8 +3,6 @@ import os
 from bot_logging.discord_logging import BotLogging
 from discord.ext import commands
 
-from boto.s3.connection import S3Connection
-
 bot = commands.Bot(command_prefix='!')
 
 extensions = [
@@ -25,6 +23,5 @@ if __name__ == '__main__':
     for ext in extensions:
         bot.load_extension(ext)
 
-    # TOKEN = open('token.txt', 'r').read()
-    TOKEN = S3Connection(os.environ['TOKEN'])
+    TOKEN = open('token.txt', 'r').read()
     bot.run(os.environ.get('TOKEN'))
