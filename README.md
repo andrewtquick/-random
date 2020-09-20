@@ -1,2 +1,5 @@
-# amongusrandom
-Among Us Game Randomizer
+# !Random
+Among Us Game Options Randomizer
+
+# README
+This will be updated soon, I promise.
