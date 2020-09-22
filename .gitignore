@@ -1,2 +1,7 @@
 token.txt
 discord.log
+cogs/__pycache__/
+Lib
+.env
+pyvenv.cfg
+Scripts
