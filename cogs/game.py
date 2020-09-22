@@ -55,6 +55,5 @@ class RandomGame(Cog):
         
         await ctx.send(content=f"{ctx.author.mention} - {random.choice(self.random_msg)}", embed=embed)
 
-
 def setup(bot):
     bot.add_cog(RandomGame(bot))
