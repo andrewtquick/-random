@@ -5,3 +5,4 @@ lib
 scripts
 pyvenv.cfg
 .env
+cogs/__pycache__/
