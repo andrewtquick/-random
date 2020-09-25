@@ -30,7 +30,7 @@ class RandomGame(Cog):
             'Best of luck, nerd.'
             ]
 
-    @Command(name='random', help='Randomizes the game settings for Among Us')
+    @Command(name='random', help='Randomizes the game settings for Among Us. 5min cd')
     @commands.cooldown(1, 300, commands.BucketType.user)
     async def random(self, ctx: Context):
         embed = discord.Embed(title="Among Us", colour=discord.Colour(0xf8e71c), description="Randomized game settings")
@@ -54,6 +54,26 @@ class RandomGame(Cog):
         embed.set_footer(text='Among Us Game Randomizer brought to you by Xylr')
         
         await ctx.send(content=f"{ctx.author.mention} - {random.choice(self.random_msg)}", embed=embed)
+
+    @Command(name='randomsus', help='Randomly eject player from the game. 1min cd (ASCII text art)')
+    @commands.cooldown(1, 60, commands.BucketType.user)
+    async def random_sus(self, ctx: Context):
+
+        is_sus = random.choice([True, False])
+        if is_sus:
+            await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　1 Imposter Remains　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
+        else:
+            await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was not An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　2 Imposters Remain　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
+
+    @Command(name='sus', help='Eject a player. 1min cd (ASCII Text art)')
+    @commands.cooldown(1, 60, commands.BucketType.user)
+    async def sus(self, ctx: Context, member: discord.Member):
+        
+        is_sus = random.choice([True, False])
+        if is_sus:
+            await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {member.mention}  was An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　1 Imposter Remains　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
+        else:
+            await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {member.mention}  was not An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　2 Imposters Remain　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
 
 def setup(bot):
     bot.add_cog(RandomGame(bot))
