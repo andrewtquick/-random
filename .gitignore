@@ -1,8 +1,10 @@
 token.txt
 discord.log
-include
-lib
-scripts
-pyvenv.cfg
-.env
 cogs/__pycache__/
+cogs/__pycache__/*
+cogs/__pycache__/game.cpython-38.pyc
+Lib
+.env
+pyvenv.cfg
+Scripts
+__pycache__/*
