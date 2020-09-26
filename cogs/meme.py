@@ -19,7 +19,7 @@ class Memer(commands.Cog):
     async def meme(self, ctx: Context):
         
         cwd = os.getcwd()
-        meme_path = os.path.join(cwd, './memes')
+        meme_path = os.path.join(cwd, 'memes')
         meme_channel = ctx.guild.get_channel(759167062831792138)
         chosen_file = random.choice(os.listdir(meme_path))
         chosen_path = os.path.join(meme_path, chosen_file)
