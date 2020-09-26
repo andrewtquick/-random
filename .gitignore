@@ -1,17 +1,9 @@
 token.txt
 discord.log
-cogs/__pycache__/
-cogs/__pycache__/*
-cogs/__pycache__/*.pyc
 Lib
 .env
 pyvenv.cfg
 Scripts
-__pycache__/*
-bot_logging/__pycache__/*.pyc
-cogs/__pycache__/error_handler.cpython-38.pyc
-cogs/__pycache__/game.cpython-38.pyc
-cogs/__pycache__/loadcog.cpython-38.pyc
 test.py
 ./*.pyc
 memes
