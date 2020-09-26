@@ -15,7 +15,7 @@ class Memer(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @Command(name="meme")
+    @Command(name="meme", help="Serves up a steamy hot Among Us meme, courtesy of Reddit.")
     async def meme(self, ctx: Context):
         
         cwd = os.getcwd()
