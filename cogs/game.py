@@ -61,7 +61,8 @@ class RandomGame(Cog):
 
         is_sus = random.choice([True, False])
         if is_sus:
-            await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　1 Imposter Remains　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
+            await ctx.send(
+                f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　1 Imposter Remains　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
         else:
             await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was not An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　2 Imposters Remain　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
 
