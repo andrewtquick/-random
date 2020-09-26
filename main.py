@@ -12,6 +12,7 @@ extensions = [
     'cogs.about',
     'cog.memer'
     'cogs.misc'
+    'cog.memer'
 ]
 
 @bot.event
