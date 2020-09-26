@@ -11,6 +11,7 @@ extensions = [
     'cogs.error_handler',
     'cogs.about',
     'cogs.misc'
+    'cog.memer'
 ]
 
 @bot.event

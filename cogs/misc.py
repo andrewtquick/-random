@@ -15,6 +15,7 @@ class CurrentTime(commands.Cog):
 
         tz = {
             'Etc/GMT': '',
+            'Europe/London': '',
             'WET': '',
             'CET': '',
             'EET': '',
@@ -35,6 +36,7 @@ class CurrentTime(commands.Cog):
 
         embed = discord.Embed(title='Current Time around the world', colour=(0x11806a))
         embed.add_field(name='GMT' , value=tz['Etc/GMT'])
+        embed.add_field(name='BST' , value=tz['Europe/London'])
         embed.add_field(name='WEST' , value=tz['WET'])
         embed.add_field(name='CEST' , value=tz['CET'])
         embed.add_field(name='EEST' , value=tz['EET'])
