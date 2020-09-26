@@ -1,7 +1,7 @@
 import praw
 import os
 import re
-import urllib.requests as download
+import urllib.request as download
 
 r = praw.Reddit(
     client_id='9sMbfS0kHaVZlQ',
