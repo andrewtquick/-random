@@ -10,8 +10,7 @@ extensions = [
     'cogs.loadcog',
     'cogs.error_handler',
     'cogs.about',
-    'cog.memer'
-    'cogs.misc'
+    'cogs.misc',
     'cog.memer'
 ]
 
