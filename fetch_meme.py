@@ -6,7 +6,9 @@ import urllib.request as download
 r = praw.Reddit(
     client_id='9sMbfS0kHaVZlQ',
     client_secret=os.getenv('REDDIT'),
-    user_agent='AmongUs Meme Scraper',)
+    user_agent='AmongUs Meme Scraper',
+    username=os.getenv('USER'),
+    password=os.getenv('PASS'))
 
 subr = r.subreddit('amongus')
 
