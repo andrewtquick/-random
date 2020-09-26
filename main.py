@@ -9,7 +9,8 @@ extensions = [
     'cogs.game',
     'cogs.loadcog',
     'cogs.error_handler',
-    'cogs.about'
+    'cogs.about',
+    'cogs.misc'
 ]
 
 @bot.event
