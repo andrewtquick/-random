@@ -1,9 +1,8 @@
 import discord
 import praw
 import os
-import re
-import urllib.request as download
 import random
+import asyncio
 from discord import File
 from discord.ext import commands
 from discord.ext.commands import command as Command
@@ -18,12 +17,30 @@ class Memer(commands.Cog):
     @Command(name="meme", help="Serves up a steamy hot Among Us meme, courtesy of Reddit.")
     async def meme(self, ctx: Context):
         
-        cwd = os.getcwd()
-        meme_path = os.path.join(cwd, 'memes')
-        meme_channel = ctx.guild.get_channel(759167062831792138)
-        chosen_file = random.choice(os.listdir(meme_path))
-        chosen_path = os.path.join(meme_path, chosen_file)
-        await meme_channel.send(f'{ctx.author.mention}', file=File(chosen_path))
+        memes = []
+
+        async with ctx.channel.typing():
+            if len(memes) == 0:
+                r = praw.Reddit(
+                    client_id='9sMbfS0kHaVZlQ',
+                    client_secret=os.getenv('REDDIT'),
+                    user_agent='AmongUs Meme Scraper',
+                    username=os.getenv('USER'),
+                    password=os.getenv('PASS'))
+
+                subr = r.subreddit('amongus')
+
+                for submission in subr.search("flair:'humor'", limit=50):
+                    if submission.url.endswith('jpg'):
+                        memes.append(submission.url)
+                    elif submission.url.endswith('png'):
+                        memes.append(submission.url)
+
+            chosen_meme = random.choice(memes)
+            memes.remove(chosen_meme)
+            await asyncio.sleep(1)
+            await ctx.send(f'{ctx.author.mention} - {chosen_meme}')
+
                 
 def setup(bot):
     bot.add_cog(Memer(bot))
