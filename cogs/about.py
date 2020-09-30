@@ -11,6 +11,7 @@ class About(commands.Cog):
     async def about(self, ctx: Context):
         embed = discord.Embed(title="About", type='rich', colour=discord.Colour(0xf40606), description="!Random was created and developed by Xylr#0781. If you'd like to contribute, please reach out to Xylr on discord directly.\n\nXylr is a novice coder, please be nice. :)")
         embed.set_thumbnail(url="https://i.imgur.com/qwdaLeJ.png")
+        embed.add_field(name='Website', value='Https://randombot.xyz')
         embed.add_field(name="Author", value="Xylr#0781", inline=False)
         embed.add_field(name="Github", value="https://github.com/andrewtquick/-random", inline=False)
         embed.add_field(name="Language", value="Python 3.8.3", inline=False)
