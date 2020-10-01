@@ -31,6 +31,7 @@ class RandomGame(Cog):
             ]
 
     @Command(name='random', help='Randomizes the game settings for Among Us. 5min cd')
+    @commands.has_permissions(send_messages=True)
     @commands.cooldown(1, 300, commands.BucketType.user)
     async def random(self, ctx: Context):
         embed = discord.Embed(title="Among Us", colour=discord.Colour(0xf8e71c), description="Randomized game settings")
@@ -56,6 +57,7 @@ class RandomGame(Cog):
         await ctx.send(content=f"{ctx.author.mention} - {random.choice(self.random_msg)}", embed=embed)
 
     @Command(name='randomsus', help='Randomly eject player from the game. 1min cd (ASCII text art)')
+    @commands.has_permissions(send_messages=True)
     @commands.cooldown(1, 60, commands.BucketType.user)
     async def random_sus(self, ctx: Context):
 
@@ -67,6 +69,7 @@ class RandomGame(Cog):
             await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was not An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　2 Imposters Remain　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
 
     @Command(name='sus', help='Eject a player. 1min cd (ASCII Text art)')
+    @commands.has_permissions(send_messages=True)
     @commands.cooldown(1, 60, commands.BucketType.user)
     async def sus(self, ctx: Context, member: discord.Member):
         
