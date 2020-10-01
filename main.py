@@ -15,10 +15,14 @@ extensions = [
 ]
 
 @bot.event
+async def on_guild_join(guild):
+    print('New Connection: ', guild)
+
+@bot.event
 async def on_ready():
     print(f'{bot.user} connected.')
     for server in bot.guilds:
-        print('Connected to: ', server)
+        print(f'Connected to: {server} -- id: {server.id}')
 
 if __name__ == '__main__':
 
