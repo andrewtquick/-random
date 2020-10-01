@@ -11,6 +11,7 @@ class CurrentTime(commands.Cog):
         self.bot = bot
     
     @Command(name='time', help='Get current date and time from around the globe.')
+    @commands.has_permissions(send_messages=True)
     async def time(self, ctx: Context):
 
         tz = {

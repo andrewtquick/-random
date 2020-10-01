@@ -3,7 +3,7 @@ import os
 from bot_logging.discord_logging import BotLogging
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!', description="Here are the available commands. \nTo use a command, prefix the command with '!'. ")
 
 extensions = [
     'cogs.game',
@@ -17,9 +17,8 @@ extensions = [
 @bot.event
 async def on_ready():
     print(f'{bot.user} connected.')
-    BotLogging.LOGGER.info(f'Connected to server:')
     for server in bot.guilds:
-        BotLogging.LOGGER.info(server)
+        print('Connected to: ', server)
 
 if __name__ == '__main__':
 

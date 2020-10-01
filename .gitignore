@@ -7,3 +7,4 @@ Scripts
 test.py
 ./*.pyc
 memes
+__pycache__
