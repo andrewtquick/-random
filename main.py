@@ -30,4 +30,4 @@ if __name__ == '__main__':
         bot.load_extension(ext)
 
     TOKEN = os.getenv('TOKEN')
-    bot.run(os.environ.get('TOKEN'))
+    bot.run(TOKEN)
