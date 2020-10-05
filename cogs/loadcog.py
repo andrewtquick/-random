@@ -8,7 +8,7 @@ class CogControl(commands.Cog):
         self.bot = bot
 
     @commands.command(name='load', hidden=True)
-    # @commands.has_role('Admin')
+    @commands.has_role('Admin')
     async def load_cog(self, ctx: Context, *, cog: str):
         try:
             self.bot.load_extension(cog)
@@ -18,7 +18,7 @@ class CogControl(commands.Cog):
             await ctx.send(f'{ctx.author.mention} -> **`### SUCCESS ###`** {cog} has been loaded.')
 
     @commands.command(name='unload', hidden=True)
-    # @commands.has_role('Admin')
+    @commands.has_role('Admin')
     async def unload_cog(self, ctx: Context, *, cog: str):
         try:
             self.bot.unload_extension(cog)
@@ -28,7 +28,7 @@ class CogControl(commands.Cog):
             await ctx.send(f'{ctx.author.mention} -> **`### SUCCESS ###`** {cog} has been unloaded.')
 
     @commands.command(name='reload', hidden=True)
-    # @commands.is_owner()
+    @commands.has_role('Admin')
     async def reload_cog(self, ctx: Context, *, cog: str):
 
         try:
