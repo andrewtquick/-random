@@ -11,7 +11,8 @@ extensions = [
     'cogs.error_handler',
     'cogs.about',
     'cogs.misc',
-    'cogs.meme'
+    'cogs.meme',
+    'cogs.game_maps'
 ]
 
 @bot.event
@@ -23,6 +24,8 @@ async def on_ready():
     print(f'{bot.user} connected.')
     for server in bot.guilds:
         print(f'Connected to: {server} -- id: {server.id}')
+    servers = list(bot.guilds)
+    print(f'Number of servers: {str(len(servers))}')
 
 if __name__ == '__main__':
 

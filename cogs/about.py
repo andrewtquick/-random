@@ -13,9 +13,9 @@ class About(commands.Cog):
         embed.set_thumbnail(url="https://i.imgur.com/qwdaLeJ.png")
         embed.add_field(name="Website", value="http://randombot.xyz")
         embed.add_field(name="Author", value="Xylr#0781", inline=False)
+        embed.add_field(name='Contact', value='amongus.randombot@gmail.com', inline=False)
         embed.add_field(name="Github", value="https://github.com/andrewtquick/-random", inline=False)
         embed.add_field(name="Language", value="Python 3.8.3", inline=False)
-        embed.add_field(name='Hosting', value="Heroku", inline=False)
         await ctx.author.send(content="Here is information about !Random", embed=embed)
 
 
