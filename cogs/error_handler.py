@@ -1,5 +1,6 @@
 import discord
 import asyncio
+from discord import Forbidden
 from discord.ext import commands
 from discord.ext.commands import CommandOnCooldown, CommandNotFound, CommandInvokeError
 
@@ -15,7 +16,9 @@ class ErrorHandler(commands.Cog):
             m, s = divmod(float(error.retry_after), 60)
             await ctx.send(f"{ctx.author.mention} - You've previously used that command. You'll need to wait `{int(m)}m {int(s)}s`")
         elif isinstance(error, CommandNotFound):
-            await ctx.send(f"{ctx.author.mention} - Sorry, I don't understand that command. try `!help` for a list of commands.")
+            pass
+        elif isinstance(error, Forbidden):
+            pass
         elif isinstance(error, CommandInvokeError):
             user_cmd = ctx.command
             channel = ctx.channel
@@ -24,10 +27,11 @@ class ErrorHandler(commands.Cog):
 
             if 'Missing Permissions' in error_cause:
                 await ctx.author.send("I'm missing the `Send Messages` permission.")
+                await ctx.author.send("To add this permission, `Go to Server Settings, then go to Roles`. Ensure `@everyone` and my current role have the `Send Messages` permission.")
                 await ctx.author.send('React to this message with a :white_check_mark: once the permissions have been fixed.')
 
                 try:
-                    reaction, user = await self.bot.wait_for('reaction_add', timeout=60.0, check=lambda reaction, user: reaction.emoji == '✅')
+                    reaction, user = await self.bot.wait_for('reaction_add', timeout=120.0, check=lambda reaction, user: reaction.emoji == '✅')
                 except asyncio.TimeoutError:
                     await ctx.author.send('Did not see a response from you.')
                 else:
