@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands import command as Command
 from discord.ext.commands import Context
 
 class About(commands.Cog):
@@ -7,7 +8,7 @@ class About(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="about", help="Information about !Random")
+    @Command(name="about", help="Information about !Random")
     async def about(self, ctx: Context):
         embed = discord.Embed(title="About", type='rich', colour=discord.Colour(0xf40606), description="!Random was created and developed by Xylr#0781. If you'd like to contribute, please reach out to Xylr on discord directly.\n\nXylr is a novice coder, please be nice. :)")
         embed.set_thumbnail(url="https://i.imgur.com/qwdaLeJ.png")

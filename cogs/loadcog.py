@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands import command as Command
 from discord.ext.commands import Context
 
 class CogControl(commands.Cog):
@@ -7,7 +8,7 @@ class CogControl(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='load', hidden=True)
+    @Command(name='load', hidden=True)
     @commands.has_role('Admin')
     async def load_cog(self, ctx: Context, *, cog: str):
         try:
@@ -17,7 +18,7 @@ class CogControl(commands.Cog):
         else:
             await ctx.send(f'{ctx.author.mention} -> **`### SUCCESS ###`** {cog} has been loaded.')
 
-    @commands.command(name='unload', hidden=True)
+    @Command(name='unload', hidden=True)
     @commands.has_role('Admin')
     async def unload_cog(self, ctx: Context, *, cog: str):
         try:
@@ -27,7 +28,7 @@ class CogControl(commands.Cog):
         else:
             await ctx.send(f'{ctx.author.mention} -> **`### SUCCESS ###`** {cog} has been unloaded.')
 
-    @commands.command(name='reload', hidden=True)
+    @Command(name='reload', hidden=True)
     @commands.has_role('Admin')
     async def reload_cog(self, ctx: Context, *, cog: str):
 

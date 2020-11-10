@@ -4,10 +4,6 @@ from discord.ext import commands
 from discord.ext.commands import command as Command
 from discord.ext.commands import Context, Cog
 
-# https://i.imgur.com/WUvulfC.png - Mira
-# https://i.imgur.com/iR88yIu.png - Polus
-# https://i.imgur.com/eskTHLJ.png - Skeld
-
 class GameMaps(Cog):
 
     def __init__(self, bot):

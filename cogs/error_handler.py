@@ -15,7 +15,7 @@ class ErrorHandler(commands.Cog):
             m, s = divmod(float(error.retry_after), 60)
             await ctx.send(f"{ctx.author.mention} - You've previously used that command. You'll need to wait `{int(m)}m {int(s)}s`")
         elif isinstance(error, CommandNotFound):
-            await ctx.send(f"{ctx.author.mention} - Sorry, I don't understand that command. try `!help` for a list of commands.")
+            pass
         elif isinstance(error, CommandInvokeError):
             user_cmd = ctx.command
             channel = ctx.channel
