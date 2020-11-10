@@ -68,7 +68,7 @@ class RandomGame(Cog):
         else:
             await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was not An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　2 Imposters Remain　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
 
-    @Command(name='sus', help='Eject a player. 1min cd (ASCII Text art)')
+    @Command(name='sus', help='Eject a player. 1min cd (ASCII Text art)', usage='@!Random')
     @commands.has_permissions(send_messages=True)
     @commands.cooldown(1, 60, commands.BucketType.user)
     async def sus(self, ctx: Context, member: discord.Member):

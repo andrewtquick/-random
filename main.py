@@ -3,7 +3,9 @@ import os
 from bot_logging.discord_logging import BotLogging
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='!', description="Here are the available commands. \nTo use a command, prefix the command with '!'. ")
+bot = commands.Bot(command_prefix='!',
+                    description="Here are the available commands. \nTo use a command, prefix the command with '!'. ",
+                    )
 
 extensions = [
     'cogs.about',
