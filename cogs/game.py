@@ -10,7 +10,7 @@ class RandomGame(Cog):
         self.bot = bot
         self.map = ['The SKELD', 'MIRA HQ', 'POLUS']
         self.ejects = ['Yes', 'No']
-        self.emerg_cd = ['0s', '5s', '10s', '15s', '20s', '25s', '30s', '35s', '40s', '45s', '50s', '55s', '60s']
+        self.emerg_cd = ['0s','5s', '10s', '15s', '20s', '25s', '30s', '35s', '40s', '45s', '50s', '55s', '60s']
         self.discuss_time = ['0s', '15s', '30s', '45s', '60s', '75s', '90s', '105s', '120s']
         self.vote_time = ['0s', '15s', '30s', '45s', '60s', '75s', '90s', '105s', '120s', '135s', '150s', '165s', '180s', '195s', '210s', '225s', '240s', '255s', '270s', '285s', '300s']
         self.player_speed = ['0.5x', '0.75x', '1.0x', '1.25x', '1.5x', '1.75x', '2.0x', '2.25x', '2.5x', '2.75x', '3.0x']

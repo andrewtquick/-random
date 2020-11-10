@@ -26,16 +26,30 @@ class ErrorHandler(commands.Cog):
             error_cause = str(error.original)
 
             if 'Missing Permissions' in error_cause:
-                msg = await ctx.author.send("**I'm missing the `Send Messages` permission.**\n\nTo add this permission, `Go to Server Settings, then go to Roles`. Ensure `@everyone` and my current role have the `Send Messages` permission.\n\nReact to this message with a :white_check_mark: once the permissions have been fixed.")
+
+                embed = discord.Embed(title='Missing Permissions', description=f'Missing `Send Messages` permission on `{ctx.guild}`', colour=discord.Colour(0xe74c3c))
+                embed.set_thumbnail(url='https://i.imgur.com/ySoSpp6.png')
+                embed.add_field(name='\u200b', value='\u200b', inline=False)
+                embed.add_field(name='How to add permission', value='`Go to Server Settings, then go to Roles`. Ensure `@everyone` and my current role have the `Send Messages` permission.', inline=False)
+                embed.add_field(name='\u200b', value='\u200b', inline=False)
+                embed.add_field(name='Completed?', value='React to this message with a :white_check_mark: once the permissions have been fixed.', inline=False)
+
+                msg = await ctx.author.send(embed=embed)
                 await msg.add_reaction('✅')
 
+                def check(reaction, user):
+                    if user != self.bot.user:
+                        return user and reaction
+
                 try:
-                    res = await self.bot.wait_for('reaction_add', timeout=120.0, check=lambda reaction, user: reaction.emoji == '✅')
-                    if res:
-                        reaction, user = res
-                        if reaction.emoji == '✅':
-                            await user.send(f'Great! Try the `!{user_cmd}` command again in the `#{channel}` channel.')
-                            await user.send('Or, you can send the command here.')
+                    res = await self.bot.wait_for('reaction_add', timeout=120.0, check=check)
+                    reaction, _ = res
+                    if reaction.emoji == '✅':
+                        embed2 = discord.Embed(title='Permission fixed!', value=f' ', colour=discord.Colour(0x2ecc71))
+                        embed2.set_thumbnail(url='https://i.imgur.com/ySoSpp6.png')
+                        embed2.add_field(name='Try again!', value=f'Try the `!{user_cmd}` command in the `#{channel}` on `{ctx.guild}` again.')
+                        await msg.edit(embed=embed2)
+                                
                 except asyncio.TimeoutError:
                     await ctx.author.send('Did not see a response from you.')
 
