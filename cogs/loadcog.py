@@ -10,6 +10,7 @@ class CogControl(commands.Cog):
 
     @Command(name='load', hidden=True)
     @commands.has_role('Admin')
+    @commands.guild_only()
     async def load_cog(self, ctx: Context, *, cog: str):
         try:
             self.bot.load_extension(cog)
@@ -20,6 +21,7 @@ class CogControl(commands.Cog):
 
     @Command(name='unload', hidden=True)
     @commands.has_role('Admin')
+    @commands.guild_only()
     async def unload_cog(self, ctx: Context, *, cog: str):
         try:
             self.bot.unload_extension(cog)
@@ -30,6 +32,7 @@ class CogControl(commands.Cog):
 
     @Command(name='reload', hidden=True)
     @commands.has_role('Admin')
+    @commands.guild_only()
     async def reload_cog(self, ctx: Context, *, cog: str):
 
         try:
