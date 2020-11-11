@@ -16,6 +16,7 @@ class Memer(Cog):
 
     @Command(name="meme", help="Serves up a steamy hot Among Us meme, courtesy of Reddit.")
     @commands.has_permissions(send_messages=True)
+    @commands.guild_only()
     async def meme(self, ctx: Context):
         
         memes = []
