@@ -39,6 +39,15 @@ class GameMaps(Cog):
         embed.set_footer(text='Image courtesy of Innersloth, developers of Among Us')
         await ctx.send(embed=embed)
 
+    @Command(name='airship', help='Display a map of Airship')
+    @commands.has_permissions(send_messages=True)
+    async def airship(self, ctx: Context):
+        airship = 'https://i.imgur.com/4cdwXi5.png'
+        embed = discord.Embed(title='Airship Map', colour=discord.Colour(0x71368a))
+        embed.set_image(url=airship)
+        embed.add_field(name='Below is the map of Airship', value="Click for a larger version")
+        embed.set_footer(text='Image courtesy of Innersloth, developers of Among Us')
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(GameMaps(bot))
