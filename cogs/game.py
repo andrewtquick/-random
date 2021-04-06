@@ -56,9 +56,10 @@ class RandomGame(Cog):
         
         await ctx.send(content=f"{ctx.author.mention} - {random.choice(self.random_msg)}", embed=embed)
 
-    @Command(name='randomsus', help='Randomly eject player from the game. 1min cd (ASCII text art)')
+    @Command(name='randomsus', help='Randomly eject player. 1min cd')
     @commands.has_permissions(send_messages=True)
     @commands.cooldown(1, 60, commands.BucketType.user)
+    @commands.guild_only()
     async def random_sus(self, ctx: Context):
 
         is_sus = random.choice([True, False])
@@ -68,9 +69,10 @@ class RandomGame(Cog):
         else:
             await ctx.send(f'.      　。　　　　•　    　ﾟ　　。\n　.　　　.　　　  　　.　　　　　。　　   。　.\n　　 .     。　        ඞ   。　    .    •\n•      。 {random.choice(ctx.message.channel.guild.members).mention}  was not An Impostor  .   。   ﾟ   .　\n  。  .   ﾟ   　2 Imposters Remain　　　ﾟ　　　.　　　\n,　　　　.　 .　　       .          .     。\n　.　　　.　　　  　　.　　　　　。　　   。　.')
 
-    @Command(name='sus', help='Eject a player. 1min cd (ASCII Text art)', usage='@!Random')
+    @Command(name='sus', help='Eject a player. 1min cd', usage='@!Random')
     @commands.has_permissions(send_messages=True)
     @commands.cooldown(1, 60, commands.BucketType.user)
+    @commands.guild_only()
     async def sus(self, ctx: Context, member: discord.Member):
         
         is_sus = random.choice([True, False])

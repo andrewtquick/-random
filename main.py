@@ -32,7 +32,6 @@ async def on_ready():
 if __name__ == '__main__':
 
     for ext in extensions:
-        bot.remove_command('help')
         bot.load_extension(ext)
 
     TOKEN = os.getenv('TOKEN')
